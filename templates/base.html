@@ -6,27 +6,36 @@
         
     </head>
     <body class="bg-white">
-        <div class="bg-pink-300 h-60 flex">
-            <div class="flex items-center flex justify-center">
-                <div class="bg-gray-400 ml-9 max-w-xs">
-                    <nav>
-                        <ul>
-                            <div>
-                                <li><a href="{{ url_for('home') }}">Home</a></li>
+        <div class="bg-fuchsia-200 h-60 relative">
+            <div class="flex">
+        
+                <div class="flex items-center flex flex-row h-20 ml-60">
+                    <div class=" bg-gray-400 py-2 px-2.5 basis-1/4">
+                        <a href="{{ url_for('home') }}">Home</a>
 
-                            </div>
-                            <div>
-                                <li><a href="{{ url_for('about') }}">About</a></li>
+                    </div>
+                    <div class="bg-gray-300 px-2.5 py-2 basis-1/4">
+                        <a href="{{ url_for('about') }}">About</a>
 
-                            </div>
-                            
-                            
-                        </ul>
-                        
-                    </nav>
+                    </div>
+                    <div>
+                        <button class="h-14 w-14 px-px py-px rounded-full bg-gray-300 absolute right-10">
+                            Profile
 
-                </div>
+                        </button>
+                    </div>
+            
+                                    
+                    
+
             </div>
+            <div class="absolute bottom-20 left-80">
+                <h1 class="font-semibold text-4xl">
+                    Welcome to kido Care
+                </h1>
+            </div>
+        </div>
+            
         </div>
         <footer class="bg-pink-200 absolute bottom-0 left-0 right-0">
             <h2 class="text-3xl font-bold underline">Socials</h2>
