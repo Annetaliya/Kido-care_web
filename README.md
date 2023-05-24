@@ -20,7 +20,9 @@
  ## Getting Started
 
  1. Clone the repository
- ```git clone https://github.com/Annetaliya/Kido-care_web.git```
+ ```
+ git clone https://github.com/Annetaliya/Kido-care_web.git
+ ```
  2. Create a virtual environment and activate it
  3. Install the dependencies
  ```
