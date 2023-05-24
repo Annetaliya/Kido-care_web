@@ -1,6 +1,6 @@
 # Kido Care Web 
- # This repository contains a web application developed using HTML, CSS, JavaScript, and Flask. The application is designed to provide a user-friendly interface for
- # your record is safe and are persistence
+  This repository contains a web application developed using HTML, CSS, JavaScript, and Flask. The application is designed to provide a user-friendly interface for
+  your record is safe and are persistence
 
  This repository contains a Flask website that allows users to view and manage patient records.
 
