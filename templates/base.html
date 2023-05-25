@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}{% endblock %}Kido-care</title>
+        <title>Kiddo Care</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     </head>
-    <body class="bg-white">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                {% endfor %}
-                    <div class=class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-                        {{ messages }}
-
-                    </div>
-
-            {% endif %}
-        {% endwith %}
-
+    <body class="bg-gray-100">
         
-        
-        <div class="bg-fuchsia-200 h-60 relative">
-            {% block header %}
-            <div class="flex">
-        
-                <div class="flex items-center flex flex-row h-20 ml-60">
-                    <div class=" bg-gray-400 py-2 px-2.5 basis-1/4">
-                        <a href="{{ url_for('home') }}">Home</a>
+        <header class="bg-orange-700 h-20">
+            <ul class="flex ml-80">
+                <li class="mt-5">
+                    <a class="hover:text-blue-800 bg-gray-300 py-6 px-4" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="mt-5">
+                    <a class="hover:text-blue-800 bg-gray-400 py-6 px-4" href="{{ url_for('about') }}">About</a>
+                </li>
+                <li class="ml-80 mt-5">
+                    <a class="hover:text-blue-800 bg-gray-400 py-6 px-4" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="ml-6 mt-5">
+                    <a class="hover:text-blue-800 bg-gray-400 py-6 px-4" href="{{ url_for('register') }}">Register</a>
+                </li>
+                <li>
+                    <button class="h-14 w-14 px-px py-px rounded-full bg-gray-300 absolute right-10">
+                        Profile
 
-                    </div>
-                    <div class="bg-gray-300 px-2.5 py-2 basis-1/4">
-                        <a href="{{ url_for('about') }}">About</a>
+                    </button>
+                </li>
+            </ul>
+        </header>
+        <div class="flex flex-row mt-28">
+            <div class="pl-20 w-3/5 animate__animated animate__jackInTheBox">
+                <h1 class="text-4xl">Welcome to <span class="text-orange-400 font-bold
+                    ">Kiddo Care </span>Website</h1>
+                <p class="mt-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                    Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                    Duis sagittis ipsum. Praesent mauris.
 
-                    </div>
-                    <div class="bg-gray-300 px-2.5 py-2 basis-1/4 ml-60">
-                        <a href="{{ url_for('login') }}">Login</a>
-                    </div>
 
-                    <div class="bg-gray-300 px-2.5 py-2 basis-1/4">
-                        <a href="{{ url_for('register') }}">Register</a>
-                    </div>
-                    <div>
-                        <button class="h-14 w-14 px-px py-px rounded-full bg-gray-300 absolute right-10">
-                            Profile
+                </p>
+                <button class="bg-orange-200 px-2 py-2 text-white rounded">
+                    Read More
 
-                        </button>
-            {% endblock %}
-                    </div>
-                    
-            
+                </button>
+            <div class="w-4/5 animate__animated animate__fadeIn animate__delay-1s">
+                <img src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
+
             </div>
-            <div class="absolute bottom-20 left-80">
-                <h1 class="font-semibold text-4xl">
-                    Welcome to kido Care
-                </h1>
+
+            
+
             </div>
         </div>
-            
-        </div>
-        <footer class="bg-pink-200 absolute bottom-0 left-0 right-0">
-            <h2 class="text-3xl font-bold underline">Socials</h2>
-
+        <footer class="bg-orange-500 absolute bottom-0 left-0 right-0 h-14">
         </footer>
+        
+
+
     </body>
 </html>
