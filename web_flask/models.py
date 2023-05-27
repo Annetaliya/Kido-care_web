@@ -1,10 +1,12 @@
-from . import db
+'''from web_flask.app1 import app
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from sqlalchemy.sql import func 
 
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
+#app.app_context().push()
+#login_manager = LoginManager(app1)
 
 class Child(db.Model):
     __tablename__ = 'children'
@@ -17,6 +19,7 @@ class Child(db.Model):
     developmental_milestones = db.Column(db.Text)
     hospital_id = db.Column(db.Integer, db.ForeignKey('hospital.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    reports = db.relationship('Report', backref='children', passive_deletes=True)
 
     def __repr__(self):
         return '<Child %r>' % self.name
@@ -44,7 +47,7 @@ class doctor(db.Model):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     hospital_id = db.Column(db.Integer, db.ForeignKey('hospital.id'), nullable=False)
-    posts = db.relationship('Post', backref='doctor', passive_deletes=True)
+    report = db.relationship('Report', backref='doctor', passive_deletes=True)
 
     def __repr__(self):
         return '<Doctor %r>' % self.name
@@ -83,13 +86,18 @@ class Report(db.Model):
     assessment_id = db.Column(db.Integer, db.ForeignKey('assessments.id'))
     doctor_notes = db.Column(db.Text)
     recommendations = db.Column(db.Text)
-    child_id = db.Column(db.Integer, db.ForeignKey('child.id'), nullable=False)
+    child_id = db.Column(db.Integer, db.ForeignKey('children.id'), nullable=False)
     report_date = db.Column(db.Date)
 
     def __repr__(self):
         return '<Report %r>' % self.assessment_id
 
-    class Hospital(db.Model):
+class Hospital(db.Model):
+    __tablename__ = 'hospital'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(200))
+    children = db.relationship('Child', backref='hospital', passive_deletes=True)
+    
+db.create_all()    
+    '''
