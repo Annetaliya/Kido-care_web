@@ -1,10 +1,19 @@
-from . import db
+'''from . import db '''
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin
-from sqlalchemy.sql import func 
+from flask import Flask, render_template, url_for, flash, redirect
+'''from flask_login import UserMixin'''
+from sqlalchemy.sql import func
+from flask import Flask, current_app
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = '9dc2caabe707156fda66b0ceeabda3ff'        
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
+
+
+    
 
 class Child(db.Model):
     __tablename__ = 'children'
@@ -21,7 +30,7 @@ class Child(db.Model):
     def __repr__(self):
         return '<Child %r>' % self.name
 
-class User(db.Model, UserMixin):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -89,7 +98,11 @@ class Report(db.Model):
     def __repr__(self):
         return '<Report %r>' % self.assessment_id
 
-    class Hospital(db.Model):
+class Hospital(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     address = db.Column(db.String(200))
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000, host='0.0.0.0')
+

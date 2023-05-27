@@ -2,9 +2,12 @@ from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm
 
 
+
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '9dc2caabe707156fda66b0ceeabda3ff'
+
 """app.register_blueprint(views)"""
 @app.route('/')
 def home():

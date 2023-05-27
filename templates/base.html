@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-gray-100 pt-0">
         
-        <header class="bg-orange-700 h-20">
+        <header class="bg-orange-300 h-20">
             <ul class="flex ml-80">
                 <li class="mt-5">
-                    <a class="hover:text-blue-800 bg-gray-300 py-6 px-4" href="{{ url_for('home') }}">Home</a>
+                    <a class="hover:text-blue-800 bg-gray-300 py-6 px-4 mt-4" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="mt-5">
                     <a class="hover:text-blue-800 bg-gray-400 py-6 px-4" href="{{ url_for('about') }}">About</a>
@@ -31,10 +31,23 @@
                 </li>
             </ul>
         </header>
-        <div class="flex flex-row mt-28">
-            <div class="pl-20 w-3/5 animate__animated animate__jackInTheBox">
-                <h1 class="text-4xl">Welcome to <span class="text-orange-400 font-bold
+        <div>
+            <div class="bg-orange-200 h-80">
+                <h1 class="text-4xl font-bold ml-60 pt-20">Welcome to <span class="text-orange-400 font-bold
                     ">Kiddo Care </span>Website</h1>
+                <h3 class="ml-60">Hero Sub-title Description</h3>
+                
+
+            </div>
+        </div>
+        <div class="bg-gray-200">
+            <div>
+                <h1 class="text-4xl">About <span class="text-orange-400 font-bold
+                    ">Kiddo Care </span>Website</h1>
+            </div>
+            <div class="pl-20 w-2/5 animate__animated animate__jackInTheBox flex justify-between items-center h-96">
+                <!--<h1 class="text-4xl">About <span class="text-orange-400 font-bold
+                    ">Kiddo Care </span>Website</h1>-->
                 <p class="mt-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
                     Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
@@ -46,7 +59,8 @@
                     Read More
 
                 </button>
-            <div class="w-4/5 animate__animated animate__fadeIn animate__delay-1s">
+                <!--<img class="w-3/5 animate__animated animate__fadeIn animate__delay-1s" src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">-->
+            <div class="w-4/5 animate__animated animate__fadeIn animate__delay-1s ml-6">
                 <img src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
 
             </div>
@@ -55,7 +69,32 @@
 
             </div>
         </div>
-        <footer class="bg-orange-500 absolute bottom-0 left-0 right-0 h-14">
+        <div class=>
+            <div class="bg-orange-200 h-80">
+                <h1 class="font-bold text-center text-4xl">Sponsors</h1>
+            
+            <div class="flex justify-center">
+                <button class="h-14 w-14 px-px py-px rounded-full bg-gray-400 mr-10">
+
+                </button>
+                <button class="h-14 w-14 px-px py-px rounded-full bg-gray-400 mr-10">
+
+                </button>
+                <button class="h-14 w-14 px-px py-px rounded-full bg-gray-400 mr-10">
+
+                </button>
+                <button class="h-14 w-14 px-px py-px rounded-full bg-gray-400">
+
+                </button>
+           
+
+            </div>
+                
+
+            </div>
+        </div>
+
+        <footer class="bg-orange-400 absolute bottom-0 left-0 right-0 h-14">
         </footer>
         
 
