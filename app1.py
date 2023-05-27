@@ -5,10 +5,8 @@ from forms import RegistrationForm, LoginForm
 
 
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = '9dc2caabe707156fda66b0ceeabda3ff'
 
-"""app.register_blueprint(views)"""
 @app.route('/')
 def home():
     return render_template('base.html')
