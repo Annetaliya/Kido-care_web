@@ -6,9 +6,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     </head>
-    <body>
-        {% block content %}
-        <header class="bg-pink-200 h-20">
+    <body class="bg-gray-100">
+        <header class="bg-orange-700 h-20">
             <ul class="flex ml-80">
                 <li class="mt-5">
                     <a class="hover:text-blue-800 bg-gray-300 py-6 px-4" href="{{ url_for('home') }}">Home</a>
@@ -30,9 +29,8 @@
                 </li>
             </ul>
         </header>
-        <footer class="bg-pink-200 absolute bottom-0 left-0 right-0 h-14">
+        <footer class="bg-orange-500 absolute bottom-0 left-0 right-0 h-14">
         </footer>
-        {% endblock %}
 
 
     </body>
