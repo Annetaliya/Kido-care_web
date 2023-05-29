@@ -18,14 +18,20 @@
                 <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('home') }}">Home</a>
              
                 <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('about') }}">About</a>
+                {% if current_user.is_authenticated %}
+                    <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('account') }}">Account</a>
+                    <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
                 <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('login') }}">Login</a>
             
                 <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('register') }}">Register</a>
+                {% endif %}
             
             
             </div>
 
         </nav> 
+        <h1>{{ current_user.username }}</h1>
         <footer class="bg-orange-500 absolute bottom-0 left-0 right-0 h-14">
         </footer>
 

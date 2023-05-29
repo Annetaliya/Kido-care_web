@@ -1,7 +1,14 @@
 from web_flask import db
 from sqlalchemy.sql import func
-from web_flask import app
+from web_flask import app, login_manager
+from flask_login import UserMixin
 
+
+app.app_context().push()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class Child(db.Model):
     __tablename__ = 'children'
@@ -19,7 +26,7 @@ class Child(db.Model):
     def __repr__(self):
         return '<Child %r>' % self.name
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -96,5 +103,5 @@ class Hospital(db.Model):
     address = db.Column(db.String(200))
     children = db.relationship('Child', backref='hospital', passive_deletes=True)
 
-with app.app_context():
-    db.create_all() 
+#with app.app_context():
+    #db.create_all() 
