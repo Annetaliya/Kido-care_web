@@ -52,13 +52,23 @@
 
         </div>
         <section class="container mx-auto px-6 p-10">
+          {% with messages =get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
               Who we are
             </h2>
             <div class="flex items-center flex-wrap mb-20">
               <div class="w-full md:w-1/2">
-                <h4 class="text-3xl text-gray-800 font-bold mb-3">Helping you track early signs of autismm and cerebral palsy</h4>
-                <p class="text-gray-600 mb-8">Studies have shown that early detection of these symptoms help in preventing further damage that the condition will have on growth development.</p>
+                <h4 class="text-3xl text-gray-800 font-bold mb-3">Helping you track early signs of autism and cerebral palsy</h4>
+                <p class="text-gray-600 mb-8">Studies have shown that early detection of these symptoms help in preventing further damage that the condition will have on the child's growth development.</p>
               </div>
               <div class="w-1/2">
                 <img class="h-96" src="../static/images/kids svg.webp" alt="Monitoring" />
@@ -71,7 +81,7 @@
               </div>
               <div class="w-full md:w-1/2 pl-10">
                 <h4 class="text-3xl text-gray-800 font-bold mb-3">Growth Milestones</h4>
-                <p class="text-gray-600 mb-8">We use a survey based system to keep up with the child's development and a lerting the parents if there is excessive delay in growth development. Early symptoms will be detected in conjunction wit growth developmnet example could be lack of eye contanct at month 3.</p>
+                <p class="text-gray-600 mb-8">We use a survey based system to keep up with the child's development and a alerting the parents if there is excessive delay in growth development. Early symptoms will be detected in conjunction with growth developmnet example could be lack of eye contact at month 3.</p>
               </div>
             </div>
       

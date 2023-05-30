@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect, request
-from web_flask.forms import RegistrationForm, LoginForm
+from web_flask.forms import RegistrationForm, LoginForm, ChildinfoForm
 from web_flask import app, db, bcrypt
 from web_flask.models import User
 from web_flask.models import Child
@@ -59,9 +59,14 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route('/account')
+@app.route('/account', methods=['POST', 'GET'])
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    form = ChildinfoForm()
+    if form.validate_on_submit():
+        flash('Thank you information is being processed', 'success')
+        return redirect(url_for('home'))
+
+    return render_template('account.html', title='Account', form=form)
 
 

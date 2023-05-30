@@ -26,11 +26,21 @@
             </div>
 
         </nav>
-        <div class="w-full max-w-xs ml-60 border-solid border-inherit border px-6" >
+        <div class="w-full max-w-xs ml-80 border-solid border-inherit border px-6 " >
+            {% with messages =get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <form method="POST" action="">
                 {{ form.hidden_tag () }}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4 bg-orange-200">Join Today</legend>
+                    <legend class="border-bottom mb-4 bg-purple-400">Join Today</legend>
                     <div class="form-group">
                         {{ form.username.label(class="form-control-label") }}
         
@@ -91,7 +101,7 @@
         
                 </fieldset>
                 <div class="form-group">
-                    {{ form.submit(class="btn btn-outline-info bg-orange-200 shadow hover:shadow-lg") }}
+                    {{ form.submit(class="btn btn-outline-info bg-purple-400 shadow hover:shadow-lg") }}
         
                 </div>
         
@@ -104,8 +114,7 @@
             </small>
         
         </div>
-        <footer class="bg-orange-500 absolute bottom-0 left-0 right-0 h-14">
-        </footer>
+       
 
 
     </body>

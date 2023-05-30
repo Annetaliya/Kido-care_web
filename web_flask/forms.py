@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, TextAreaField, RadioField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from web_flask.models import User
 
@@ -29,3 +29,12 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password',validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+class ChildinfoForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired()])
+    second_name = StringField('Second Name', validators=[DataRequired()])
+    date_of_birth = IntegerField('Date Of Birth', validators=[DataRequired()])
+    gender = RadioField('Gender', choices=['Female', 'Male'], validators=[DataRequired()])
+    medical_history = TextAreaField('Medical History')
+    age = IntegerField('Age', validators=[DataRequired()])
+    submit = SubmitField('submit')
