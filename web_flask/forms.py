@@ -3,6 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, TextAreaField, RadioField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from web_flask.models import User
+from wtforms.fields import DateField
+from wtforms.widgets import TextArea
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -33,8 +35,8 @@ class LoginForm(FlaskForm):
 class ChildinfoForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()])
     second_name = StringField('Second Name', validators=[DataRequired()])
-    date_of_birth = IntegerField('Date Of Birth', validators=[DataRequired()])
+    date_of_birth = DateField('Date Of Birth', format='%Y-%m-%d')
     gender = RadioField('Gender', choices=['Female', 'Male'], validators=[DataRequired()])
-    medical_history = TextAreaField('Medical History')
+    medical_history = StringField('Medical History', widget=TextArea())
     age = IntegerField('Age', validators=[DataRequired()])
     submit = SubmitField('submit')
