@@ -1,104 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Kiddo Care</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet" />
-
-    </head>
-    <body class="bg-gray-100 pt-0">
-        <nav class="flex justify-between px-24 h-16 items-center">
-            <div>
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0
-                24 24" xmlns="http://www.w3.org/2000/svg"> <path stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2"d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1  1 0 001-1V5a1 1 0 00-1-1H4a1 1 0
-                00-1 1v14a1 10 001 1z"></path></svg>
-            </div>
-            <div>
-              
-              <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('home') }}">Home</a>
-             
-              <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('about') }}">About</a>
-              {% if current_user.is_authenticated %}
-                <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('account') }}">Account</a>
-                <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('logout') }}">Logout</a>
-              {% else %}
-                <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('login') }}">Login</a>
-              
-                <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('register') }}">Register</a>
-            
-              {% endif %}
-            </div>
-
-        </nav>
-
-        <div class="py-20" style="background: linear-gradient(90deg, #cc56cc 0%, #3c1465 100%)">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold mb-2 text-white">
-                    Welcome to Kiddo care
-                  </h2>
-                  <h3 class="text-2xl mb-8 text-gray-200">
-                    Caring for our little ones
-                  </h3>
-                  <h3 class="text-2xl mb-8 text-gray-200">
-                    Monitor your child symptoms with ease.
-                  </h3>
-                
-
-            </div>
-
-
+  <head>
+    <meta name="viewpoint", content="with=device-width, initial scale=1.0">
+    <title>Kiddo care website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section class="min-h-screen w-full bg-cover bg-center bg-gradient-to-t from-purple-500 to-pink-500">
+      <nav class="flex justify-between px-24 h-16 items-center">
+        <div>
+            <!--<svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0
+            24 24" xmlns="http://www.w3.org/2000/svg"> <path stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2"d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1  1 0 001-1V5a1 1 0 00-1-1H4a1 1 0
+            00-1 1v14a1 10 001 1z"></path></svg>-->
         </div>
-        <section class="container mx-auto px-6 p-10">
-          {% with messages =get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
-              Who we are
-            </h2>
-            <div class="flex items-center flex-wrap mb-20">
-              <div class="w-full md:w-1/2">
-                <h4 class="text-3xl text-gray-800 font-bold mb-3">Helping you track early signs of autism and cerebral palsy</h4>
-                <p class="text-gray-600 mb-8">Studies have shown that early detection of these symptoms help in preventing further damage that the condition will have on the child's growth development.</p>
-              </div>
-              <div class="w-1/2">
-                <img class="h-96" src="../static/images/kids svg.webp" alt="Monitoring" />
-              </div>
-            </div>
-      
-            <div class="flex items-center flex-wrap mb-20">
-              <div class="w-full md:w-1/2">
-                <img class="h-98" src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
-              </div>
-              <div class="w-full md:w-1/2 pl-10">
-                <h4 class="text-3xl text-gray-800 font-bold mb-3">Growth Milestones</h4>
-                <p class="text-gray-600 mb-8">We use a survey based system to keep up with the child's development and a alerting the parents if there is excessive delay in growth development. Early symptoms will be detected in conjunction with growth developmnet example could be lack of eye contact at month 3.</p>
-              </div>
-            </div>
-      
-            <div class="flex items-center flex-wrap mb-20">
-              <div class="w-full md:w-1/2">
-                <h4 class="text-3xl text-gray-800 font-bold mb-3">Syncing</h4>
-                <p class="text-gray-600 mb-8">Our Smart Health Monitoring Wristwatch allows you to sync data across all your mobile devices whether iOS, Android or Windows OS and also to your laptop whether MacOS, GNU/Linux or Windows OS.</p>
-              </div>
-              <div class="w-full md:w-1/2">
-                <img src="assets/sync.svg" alt="Syncing" />
-              </div>
-            </div>
-          </section>
-      
-
+        <div>
+          
+          <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('home') }}">HOME</a>
+         
+          <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('about') }}">ABOUT</a>
+          {% if current_user.is_authenticated %}
+            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('account') }}">ACCOUNT</a>
+            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('logout') }}">LOGOUTt</a>
+          {% else %}
+            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('login') }}">LOGIN</a>
+          
+            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('register') }}">REGISTER</a>
         
+          {% endif %}
+          
+        </div>
+      </nav>
+    <div class="text-white absolute top-50 left-50 text-center mt-32 mb-20">
+      <h1 class="mb-6 font-bold text-5xl">Welcome to Kiddo care</h1>
+      <p class="mb-10 ml-40">Our main goal is to assist you in your parenting journey.Through guidance in growth development and helping you notice early signs of cerebral palsy and autism</p>
+      <a class="inline-block border-solid border bg-transparent px-0.5 py-1 mb-10" href="">See About Us to learn More</a>
+    </div>
+    <div class="flex justify-start items-center mt-96">
+      <div>
+        <img class="h-80 ml-10" src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
+      </div>
+      <div class="ml-10">
+        <h1 class="mb-6 font-bold text-3xl text-gray-100">Why Kiddo Care</h1>
+        <p class="text-gray-200">Conditions like Autism and Cerebral palsy can go unoticed if a parent is not keen at the infancy stage</br>
+          Kiddo care will walk with you step by step in your child's growth journey, keeping you informed </br>and alerting you
+          on the red flags that may appear that can easily go unoticed.
+        </p>
+      </div>
+    </div>
+      
 
-
-    </body>
+    </section>
+    <section class="bg-gradient-to-t from-gray-100 to-gray-400 pt-5">
+      <div class="text-white font-semibold text-center text-2xl">
+        <h1>You deserve happy and healthy children</h1>
+      </div>
+      <div class="flex justify-between items-center">
+        <div>
+          <img class="h-96 mr-20 ml-20" src="../static/images/pexels-alena-darmel-7322398.jpg">
+        </div>
+        <div>
+          <img class="h-80 mr-20" src="../static/images/pexels-anna-shvets-11369378.jpg">
+        </div>
+        <div>
+          <img class="h-96 mr-10" src="../static/images/pexels-ron-lach-10044378.jpg">
+        </div>
+      </div>
+    </section>
+    <section class="bg-gradient-to-t from-pink-500 to-purple-500">
+      <div class="text-white font-semibold text-center text-2xl">
+        <h1 class="pt-20">Testimonials</h1>
+      </div>
+      <div class="flex justify-start items-center">
+        <div class="ml-10">
+          <h1 class="font-semibold text-center pt-10 text-gray-100"></h1>
+          <p class="text-gray-200">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</br> ac turpis egestas.Pellentesque habitant morbi tristique senectus </br>et netus et malesuada fames ac turpis egestas </p>
+        </div>
+        <div class="ml-20">
+          <h1 class="font-semibold text-center pt-10 text-gray-100">Leah</h1>
+          <p class="text-gray-200">Pellentesque habitant morbi tristique senectus et netus et malesuada </br>fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,</br> tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</br> Aenean ultricies mi vitae est.</p>
+        </div>
+      </div>
+      <div class="flex justify-start items-center ml-96 pb-10">
+        <div class="pt-20 mr-20">
+          <img class="h-8" src="../static/images/instagram-icon.png">
+        </div>
+        <div class="pt-20">
+          <img class="h-8 mr-20" src="../static/images/facebook-icon.png">
+        </div>
+        <div class="pt-20">
+          <img class="h-8 mr-20" src="../static/images/twitter-icon.png">
+        </div>
+        <div class="pt-20">
+          <img class="h-8" src="../static/images/phone-icon.png">
+        </div>
+      </div>
+      
+    </section>
+  </body>
 </html>

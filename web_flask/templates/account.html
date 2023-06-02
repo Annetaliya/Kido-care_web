@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h1>{{ current_user.username }}</h1>
-    <div class="w-full max-w-xs ml-60 border-solid border-inherit border px-6">
+    <div class="conten-section w-96 ml-96">
         {% with messages =get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}

@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Kiddo Care</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    </head>
-    <body class="bg-gray-100">
-        <nav class="flex justify-between px-24 h-16 items-center bg-gray-200">
-            <div>
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewbox="0 0
-                24 24" xmlns="http://www.w3.org/2000/svg"> <path stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2"d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1  1 0 001-1V5a1 1 0 00-1-1H4a1 1 0
-                00-1 1v14a1 10 001 1z"></path></svg>
-            </div>
-            <div>
-                <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('home') }}">Home</a>
-             
-                <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('about') }}">About</a>
-                <a class="hover:text-blue-800  py-6 px-4" href="{{ url_for('login') }}">Login</a>
-            
-                <a class="hover:text-blue-800 py-6 px-4" href="{{ url_for('register') }}">Register</a>
-            
-            
-            </div>
-
-        </nav>
-        <div class="w-full max-w-xs ml-80 border-solid border-inherit border px-6 " >
+{% extends 'layout.html' %}
+{% block content %}
+        <div class="conten-section w-96 ml-96">
             {% with messages =get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -107,16 +81,13 @@
         
             </form>
         </div>
-        <div class="ml-60">
+        <div class="ml-96">
             <small>
                 Already have an Account? <a class="ml-2" href="{{ url_for('login') }}">Sign in</a>
         
             </small>
         
         </div>
+{% endblock %}
        
-
-
-    </body>
-</html>
   
