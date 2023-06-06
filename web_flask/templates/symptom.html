@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>What are your symptoms?</h1>
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        {{ form.choices }}
+        <button>Submit</button>
+        </form>
+{% endblock %}

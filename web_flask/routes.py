@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect, request
-from web_flask.forms import RegistrationForm, LoginForm, ChildinfoForm
+from web_flask.forms import RegistrationForm, LoginForm, ChildinfoForm, SymptomForm
 from web_flask import app, db, bcrypt
 from web_flask.models import User
 from web_flask.models import Child
@@ -43,16 +43,22 @@ def login():
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('home'))
+        if form.role.data == 'Doctor':
+           return redirect(url_for('doctor'))
         else:
-            flash('Login Unsuccessful, Please check email and password', 'danger')
-
-
+            user = User.query.filter_by(email=form.email.data).first()
+            if user and bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user, remember=form.remember.data)
+                next_page = request.args.get('next')
+                return redirect(next_page) if next_page else redirect(url_for('home'))
+            else:
+                flash('Login Unsuccessful, Please check email and password', 'danger')
+    
     return render_template('login.html', title='Register', form=form)
+
+@app.route('/doctor', methods=['GET', 'POST'])
+def doctor():
+    return "Hello Doctor"
 
 @app.route('/logout')
 def logout():
@@ -68,5 +74,17 @@ def account():
         return redirect(url_for('home'))
 
     return render_template('account.html', title='Account', form=form)
+
+
+@app.route('/symptom', methods=['POST', 'GET'])
+@login_required
+def symptom():
+    form = SymptomForm()
+    form.choices.query = Symptom.query.all()
+
+    if form.validate_on_submit():
+        print(form.choices.data)
+
+    return render_template('symptom.html', title='Symptom', form=form)
 
 

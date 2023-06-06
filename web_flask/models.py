@@ -60,9 +60,6 @@ class Symptom(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
-    description = db.Column(db.Text)
-    severity = db.Column(db.Integer)
-    onset_age = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Symptom %r>' % self.name

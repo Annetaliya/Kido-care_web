@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, TextAreaField, RadioField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField, TextAreaField, RadioField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from web_flask.models import User
 from wtforms.fields import DateField
 from wtforms.widgets import TextArea
+from wtforms_alchemy import QuerySelectMultipleField
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -13,6 +15,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password',validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                       validators=[DataRequired(), EqualTo('password')])
+    role = RadioField('Role', choices=['Parent', 'Doctor'], validators=[DataRequired()])
     submit = SubmitField('Sign-up')
 
     def validate_username(self, username):
@@ -29,6 +32,7 @@ class RegistrationForm(FlaskForm):
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password',validators=[DataRequired()])
+    role = RadioField('Role', choices=['Parent', 'Doctor'], validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
@@ -40,3 +44,9 @@ class ChildinfoForm(FlaskForm):
     medical_history = StringField('Medical History', widget=TextArea())
     age = IntegerField('Age', validators=[DataRequired()])
     submit = SubmitField('submit')
+
+class SymptomForm(FlaskForm):
+    choices = QuerySelectMultipleField('Symptom')
+    submit = SubmitField('submit')
+    
+

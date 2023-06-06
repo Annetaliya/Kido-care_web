@@ -72,12 +72,24 @@
                             {{ form.confirm_password(class="form-control form-control-lg") }}
                         {% endif %}
                     </div>
+                    <p>
+                        {{ form.role.label }}
+                        {{ form.role() }}
+                    </p>
+            
+                    {% if form.role.errors %}
+                        <ul class="errors">
+                            {% for error in form.role.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
         
                 </fieldset>
                 <div class="form-group">
                     {{ form.submit(class="btn btn-outline-info bg-purple-400 shadow hover:shadow-lg") }}
-        
                 </div>
+
         
             </form>
         </div>
