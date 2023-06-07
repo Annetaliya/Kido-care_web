@@ -10,11 +10,12 @@ app.app_context().push()
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class Child(db.Model):
+class Child(db.Model, UserMixin):
     __tablename__ = 'children'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
+    
     date_of_birth = db.Column(db.Date)
     gender = db.Column(db.String(1))
     medical_history = db.Column(db.Text)
@@ -100,5 +101,5 @@ class Hospital(db.Model):
     address = db.Column(db.String(200))
     children = db.relationship('Child', backref='hospital', passive_deletes=True)
 
-#with app.app_context():
-    #db.create_all() 
+
+    db.create_all() 

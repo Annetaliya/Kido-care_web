@@ -7,7 +7,7 @@ from web_flask.models import Doctor, Symptom, Assessment, Report, Hospital
 from flask_login import login_user, current_user, logout_user, login_required
 from wtforms.fields import DateField
 #with app.app_context():
-#db.create_all() 
+db.create_all() 
 #app.register_blueprint('views', url_prefix='/')
 #from .models import *
 
@@ -86,5 +86,20 @@ def symptom():
         print(form.choices.data)
 
     return render_template('symptom.html', title='Symptom', form=form)
+
+@app.route('/child', methods=['GET', 'POST'])
+@login_required
+def child():
+    form = ChildinfoForm()
+    if form.validate_on_submit():
+        child = Child(name=form.name.data, date_of_birth=form.date_of_birth.data,
+                     gender=form.gender.data, user_id=form.user_id.data, hospital_id=form.hospital_id.data)
+        db.session.add(child)
+        db.session.commit()
+        flash('Thank you! Your information is being processed')
+        return redirect(url_for('account'))
+    return render_template('child.html', title='child', form=form)
+    
+
 
 

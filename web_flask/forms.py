@@ -37,12 +37,13 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class ChildinfoForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
-    second_name = StringField('Second Name', validators=[DataRequired()])
+    name = StringField('First Name', validators=[DataRequired()])
+   
     date_of_birth = DateField('Date Of Birth', format='%Y-%m-%d')
     gender = RadioField('Gender', choices=['Female', 'Male'], validators=[DataRequired()])
     medical_history = StringField('Medical History', widget=TextArea())
-    age = IntegerField('Age', validators=[DataRequired()])
+    user_id = IntegerField('Parents Id', validators=[DataRequired()])
+    hospital_id = IntegerField('Hospital Id', validators=[DataRequired()])
     submit = SubmitField('submit')
 
 class SymptomForm(FlaskForm):

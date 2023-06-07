@@ -7,6 +7,9 @@ from flask_login import LoginManager
 
 
 
+
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '9dc2caabe707156fda66b0ceeabda3ff'
 DB_NAME = "database.db"
@@ -18,3 +21,6 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 from web_flask import routes
+from web_flask import db
+
+db.create_all()

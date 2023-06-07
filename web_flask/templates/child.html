@@ -1,2 +1,98 @@
 {% extends 'layout.html' %}
+{% block content %}
+    <div class="content-section w-96 ml-96">
+        {% with messages =get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="">
+            {{ form.hidden_tag () }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 bg-purple-400">Child's info</legend>
+                
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+               
+
+                <div class="form-group">
+                    {{ form.date_of_birth.label(class="form-control-label") }}
+                    {% if form.date_of_birth.errors %}
+                        {{ form.date_of_birth(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.date_of_birth.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+
+                        </div>
+                    {% else %}
+                        {{ form.date_of_birth(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <tr>
+                    <td>{{ form.medical_history.label }}</td>
+                    <td>{{ form.medical_history() }}</td>
+                </tr>
+                <p>
+                    {{ form.user_id.label }}
+                    {{ form.user_id() }}
+                </p>
+        
+                {% if form.user_id.errors %}
+                    <ul class="errors">
+                        {% for error in form.user_id.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <p>
+                    {{ form.hospital_id.label }}
+                    {{ form.hospital_id() }}
+                </p>
+        
+                {% if form.hospital_id.errors %}
+                    <ul class="errors">
+                        {% for error in form.hospital_id.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                <p>
+                    {{ form.gender.label }}
+                    {{ form.gender() }}
+                </p>
+        
+                {% if form.gender.errors %}
+                    <ul class="errors">
+                        {% for error in form.gender.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        
+                
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info bg-purple-400 shadow hover:shadow-lg") }}
+
+            </div>
 {% endblock %}
