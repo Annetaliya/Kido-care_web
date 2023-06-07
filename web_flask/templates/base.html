@@ -21,7 +21,7 @@
           <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('about') }}">ABOUT</a>
           {% if current_user.is_authenticated %}
             <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('account') }}">ACCOUNT</a>
-            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('logout') }}">LOGOUTt</a>
+            <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('logout') }}">LOGOUT</a>
           {% else %}
             <a class="hover:text-blue-800 py-6 px-4 text-white" href="{{ url_for('login') }}">LOGIN</a>
           
@@ -34,14 +34,14 @@
     <div class="text-white absolute top-50 left-50 text-center mt-32 mb-20">
       <h1 class="mb-6 font-bold text-5xl">Welcome to Kiddo care</h1>
       <p class="mb-10 ml-40">Our main goal is to assist you in your parenting journey.Through guidance in growth development and helping you notice early signs of cerebral palsy and autism</p>
-      <a class="inline-block border-solid border bg-transparent px-0.5 py-1 mb-10" href="">See About Us to learn More</a>
+      <a class="inline-block border-solid border bg-transparent px-0.5 py-1 mb-10 hover:text-black hover:bg-gray-200" href="{{ url_for('about') }}">See About Us to learn More</a>
     </div>
     <div class="flex justify-start items-center mt-96">
-      <div>
-        <img class="h-80 ml-10" src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
+      <div class="ml-10">
+        <img style="width: 700px;" src="../static/images/erika-giraud-4EFeD-VTgu4-unsplash.jpg">
       </div>
       <div class="ml-10">
-        <h1 class="mb-6 font-bold text-3xl text-gray-100">Why Kiddo Care</h1>
+        <h1 class="mb-6 font-bold text-5xl text-gray-100">Why Kiddo Care</h1>
         <p class="text-gray-200">Conditions like Autism and Cerebral palsy can go unoticed if a parent is not keen at the infancy stage</br>
           Kiddo care will walk with you step by step in your child's growth journey, keeping you informed </br>and alerting you
           on the red flags that may appear that can easily go unoticed.
@@ -52,7 +52,7 @@
 
     </section>
     <section class="bg-gradient-to-t from-gray-100 to-gray-400 pt-5">
-      <div class="text-white font-semibold text-center text-2xl">
+      <div class="text-black font-semibold text-center text-4xl">
         <h1>You deserve happy and healthy children</h1>
       </div>
       <div class="flex justify-between items-center">
@@ -67,44 +67,62 @@
         </div>
       </div>
     </section>
-    <section class="bg-gradient-to-t from-pink-500 to-purple-500">
-      <div class="text-white font-semibold text-center text-2xl">
-        <h1 class="pt-20">Testimonials</h1>
-      </div>
-      <div class="flex justify-start items-center">
-        <div class="ml-10 border-solid border bg-transparent">
-          <h1 class="font-semibold text-center pt-10 text-black">Mary</h1>
-          <p class="text-black">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</br> ac turpis egestas.Pellentesque habitant morbi tristique senectus </br>et netus et malesuada fames ac turpis egestas </p>
+    <section class="bg-black">
+      <div class="flex justify-between">
+        <div class="text-gray-100 w-96 pt-20 ml-20">
+          <h1 class="text-7xl pb-10">How it works</h1>
+          <h2 class="text-3xl">We give you a chance to update monthly progress</h2>
+          <p class="pt-5">Monthly updates help us asses growth development of your child and track abnomalies through the updates</p>
+
         </div>
-        <div class="ml-10 border-solid border bg-transparent">
-          <h1 class="font-semibold text-center pt-10 text-black">Leah</h1>
-          <p class="text-black">Pellentesque habitant morbi tristique senectus et netus et malesuada </br>fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,</br> tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</br> Aenean ultricies mi vitae est.</p>
-        </div>
-        <div class="border-solid border bg-transparent ml-10">
-          <h1 class="font-semibold text-center pt-10 text-black">Leah</h1>
-          <p class="text-black">Pellentesque habitant morbi tristique senectus et netus et malesuada </br>fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,</br> tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</br> Aenean ultricies mi vitae est.</p>
+        <div class="mr-10 pt-20 pb-10">
+          <img style="width: 500px;" src="../static/images/pexels-rdne-stock-project-7045738.jpg">
 
         </div>
       </div>
-      <div class="flex justify-start items-center ml-96 pb-10">
-        <div class="pt-20 mr-20">
+    </section>
+    <section class="bg-gradient-to-t from-pink-500 to-purple-500">
+      <div class="text-white font-bold text-center text-4xl ">
+        <h1 class="pt-20 pb-20">Testimonials</h1>
+      </div>
+      <div class="flex justify-start items-center">
+        <div style="width:500px;" class="mr-10 ml-10">
+          <img src="../static/images/pexels-moose-photos-1036623.jpg">
+          <h1 class="font-semibold text-center pt-10 text-gray-100 text-2xl">Mary</h1>
+          <p class="text-gray-100 pb-10">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.Pellentesque habitant morbi tristique senectus et netus et</p>
+        </div>
+        <div style="width:500px;" class="mr-10">
+          <img src="../static/images/pexels-emmy-e-2381069.jpg">
+          <h1 class="font-semibold text-center pt-10 text-gray-100 text-2xl">Leah</h1>
+          <p class="text-gray-100 pb-10">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+        </div>
+        <div style="width: 500px;" class="mr-10">
+          <img src="../static/images/pexels-hannah-nelson-1065084.jpg"> 
+          <h1 class="font-semibold text-center pt-10 text-gray-100 text-2xl">Leah</h1>
+          <p class="text-gray-100 pb-10">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+
+        </div>
+      </div>
+      
+      
+    </section>
+
+    <section class="bg-black pt-5">
+      <div class="flex justify-between items-center ml-96 pb-10">
+        <div class="pt-6 mr-20">
           <img class="h-8" src="../static/images/instagram-icon.png">
         </div>
-        <div class="pt-20">
+        <div class="pt-6">
           <img class="h-8 mr-20" src="../static/images/facebook-icon.png">
         </div>
-        <div class="pt-20">
+        <div class="pt-6">
           <img class="h-8 mr-20" src="../static/images/twitter-icon.png">
         </div>
-        <div class="pt-20">
+        <div class="pt-6 mr-96">
           <img class="h-8" src="../static/images/phone-icon.png">
         </div>
       </div>
       
-    </section>
-
-    <section class="bg-gradient-to-t from-gray-100 to-gray-400 pt-5">
-      <div></div>
 
     </section>
   </body>
