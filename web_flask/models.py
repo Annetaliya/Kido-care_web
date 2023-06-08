@@ -2,9 +2,10 @@ from web_flask import db
 from sqlalchemy.sql import func
 from web_flask import app, login_manager
 from flask_login import UserMixin
+import uuid
 
 
-app.app_context().push()
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -25,12 +26,12 @@ class Child(db.Model, UserMixin):
     reports = db.relationship('Report', backref='children', passive_deletes=True)
 
     def __repr__(self):
-        return '<Child %r>' % self.name
+        return 'Child %r' % self.name
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, primary_key=True, default=str(uuid.uuid4()))
     username = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(120), unique=True)
     password = db.Column(db.String(20), nullable=False)
@@ -42,7 +43,7 @@ class User(db.Model, UserMixin):
 
 
     def __repr__(self):
-        return '<User %r>' % self.email
+        return '<User %r>' % self.username
 
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -101,5 +102,6 @@ class Hospital(db.Model):
     address = db.Column(db.String(200))
     children = db.relationship('Child', backref='hospital', passive_deletes=True)
 
-
+    app.app_context().push()
+    
     db.create_all() 
