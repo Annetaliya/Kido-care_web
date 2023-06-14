@@ -5,10 +5,7 @@ from sqlalchemy.sql import func
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-
-
-
-
+'''instansiation of objects'''
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '9dc2caabe707156fda66b0ceeabda3ff'

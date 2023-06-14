@@ -31,7 +31,7 @@ class Child(db.Model, UserMixin):
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.String, primary_key=True, default=str(uuid.uuid4()))
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(120), unique=True)
     password = db.Column(db.String(20), nullable=False)

@@ -1,5 +1,5 @@
 from web_flask import app
-
+'''Flask app'''
 
 
 if __name__ == '__main__':

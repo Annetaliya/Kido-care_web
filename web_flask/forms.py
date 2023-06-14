@@ -7,6 +7,8 @@ from wtforms.fields import DateField
 from wtforms.widgets import TextArea
 from wtforms_alchemy import QuerySelectMultipleField
 
+'''declaration of various form fields'''
+
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username',
@@ -15,7 +17,7 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password',validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
                                       validators=[DataRequired(), EqualTo('password')])
-    role = RadioField('Role', choices=['Parent', 'Doctor'], validators=[DataRequired()])
+
     submit = SubmitField('Sign-up')
 
     def validate_username(self, username):
